@@ -4,6 +4,7 @@ import dbconnection.DBConnection;
 import model.Subscriber;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class SubscriberDAO {
     private static Connection connection;
@@ -129,5 +130,48 @@ public class SubscriberDAO {
             e.printStackTrace();
         }
         return msg;
+    }
+
+    private static String fetchAll = "select * from subscriber limit 20";
+
+    public static ArrayList<Subscriber> getAllSubscriber() {
+        ArrayList<Subscriber> subscribers = new ArrayList<>();
+
+        try {
+            connection = DBConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement(fetchAll);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    Subscriber s = new Subscriber();
+                    String first_name = resultSet.getString("fname");
+                    String last_name = resultSet.getString("lname");
+                    String address = resultSet.getString("address");
+                    String email = resultSet.getString("email");
+                    String gender = resultSet.getString("gender");
+                    String username = resultSet.getString("username");
+                    long phone_no = Long.parseLong(resultSet.getString("phno"));
+                    java.util.Date date_of_birth = new java.util.Date(resultSet.getDate("dob").getTime());
+                    java.util.Date date_of_joining = new java.util.Date(resultSet.getDate("doj").getTime());
+                    String subscriber_id = resultSet.getString("subscriberid");
+                    s = new Subscriber();
+                    s.setFirst_name(first_name);
+                    s.setLast_name(last_name);
+                    s.setAddress(address);
+                    s.setEmail(email);
+                    s.setGender(gender);
+                    s.setUsername(username);
+                    s.setPhone_no(phone_no);
+                    s.setSubscriberId(subscriber_id);
+                    s.setDate_of_birth(date_of_birth);
+                    s.setDate_of_joining(date_of_joining);
+                    s.setPassword(s.getPassword());
+                    subscribers.add(s);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return subscribers;
     }
 }

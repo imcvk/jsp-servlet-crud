@@ -15,6 +15,6 @@
   session.invalidate();
 %>
 <h1>User logged out</h1>
-<a href="index.jsp">HomePage</a>
+<jsp:include page="index.jsp"></jsp:include>
 </body>
 </html>

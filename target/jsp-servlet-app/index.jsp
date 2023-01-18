@@ -33,7 +33,7 @@
   <form>
     <table>
       <tr>
-        <%if (session.getAttribute("subscriber")==null) {%>
+        <%if (session.getAttribute("subscriber") == null) {%>
         <td>
           <a href="login.jsp"><h2>Login</h2></a>
         </td>
@@ -41,7 +41,8 @@
         } else {
         %>
         <td>
-          <a href="profile.jsp"><h2>My Profile</h2></a>
+          <a href="profile.jsp"><h2>My Profile</h2></a><br>
+          <a href="allSubsciber.jsp"><h2>All Subscriber</h2></a><br>
         </td>
         <%}%>
       </tr>
@@ -51,7 +52,7 @@
         </td>
       </tr>
       <tr>
-        <%if (!(session.getAttribute("subscriber")==null)) {%>
+        <%if (!(session.getAttribute("subscriber") == null)) {%>
         <td>
           <a href="logout.jsp"><h2>Logout</h2></a>
         </td>

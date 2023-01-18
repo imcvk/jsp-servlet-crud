@@ -170,6 +170,7 @@
         <td>
           <input type="submit" value="Submit">
           <input type="reset" value="Reset">
+          <a href="profile.jsp">Cancel</a>
         </td>
       </tr>
     </table>
