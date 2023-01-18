@@ -3,22 +3,11 @@ package model;
 import java.util.Date;
 
 public class Subscriber {
+    private String subscriberId;
     private String first_name;
-    private String last_name;
-    private Date date_of_birth;
-    private Date date_of_joining;
-    private String address;
-    private String email;
-    private String gender;
-    private long phone_no;
-    private String username;
-    private String password;
-    private String confirm_password;
 
-    public Subscriber() {
-    }
-
-    public Subscriber(String first_name, String last_name, Date date_of_birth, Date date_of_joining, String address, String email, String gender, long phone_no, String username, String password, String confirm_password) {
+    public Subscriber(String subscriberId, String first_name, String last_name, Date date_of_birth, Date date_of_joining, String address, String email, String gender, long phone_no, String username, String password) {
+        this.subscriberId = subscriberId;
         this.first_name = first_name;
         this.last_name = last_name;
         this.date_of_birth = date_of_birth;
@@ -29,7 +18,41 @@ public class Subscriber {
         this.phone_no = phone_no;
         this.username = username;
         this.password = password;
-        this.confirm_password = confirm_password;
+    }
+
+    public String getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(String subscriberId) {
+        this.subscriberId = subscriberId;
+    }
+
+    private String last_name;
+    private Date date_of_birth;
+    private Date date_of_joining;
+    private String address;
+    private String email;
+    private String gender;
+    private long phone_no;
+    private String username;
+    private String password;
+
+
+    public Subscriber() {
+    }
+
+    public Subscriber(String first_name, String last_name, Date date_of_birth, Date date_of_joining, String address, String email, String gender, long phone_no, String username, String password) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.date_of_birth = date_of_birth;
+        this.date_of_joining = date_of_joining;
+        this.address = address;
+        this.email = email;
+        this.gender = gender;
+        this.phone_no = phone_no;
+        this.username = username;
+        this.password = password;
     }
 
     public String getFirst_name() {
@@ -110,13 +133,5 @@ public class Subscriber {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirm_password() {
-        return confirm_password;
-    }
-
-    public void setConfirm_password(String confirm_password) {
-        this.confirm_password = confirm_password;
     }
 }
